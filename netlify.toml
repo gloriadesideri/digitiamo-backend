@@ -1,2 +1,6 @@
 [build]
     functions="functions"
+
+[context.production]
+
+  environment = { MONGODB = "mongodb+srv://Gloria:Gloria@digitiamo.83ly7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" }
