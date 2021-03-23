@@ -8,7 +8,7 @@ const session = require('express-session')
 const http = require("http");
 const rateLimit = require("express-rate-limit");
 const mongoose = require('mongoose');
-const serverless= require('serverless-http')
+
 
 const conn = mongoose.createConnection(process.env.MONGODB , {useUnifiedTopology: true, useNewUrlParser: true  });
 
@@ -70,8 +70,7 @@ app.use(function(err, req, res, next){
 });
 
 const PORT = process.env.PORT || 3000;
-app.use('/.netlify/functions', guestRoutes);
+app.use('/', guestRoutes);
 
 // Starting the server
-//server.listen(PORT, () => console.log('We have a server running on PORT: ' + PORT));
-module.exports.handler=serverless(app)
+server.listen(PORT, () => console.log('We have a server running on PORT: ' + PORT));
